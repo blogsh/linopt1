@@ -1,0 +1,28 @@
+model diesel.mod;  		# load the optimization model
+data diesel.dat;   		# load the model data
+options solver cplex;	# choose cplex as optimization solver
+option cplex_options 'sensitivity';
+option presolve 0;
+solve;    
+
+display area;	
+display veggieOil; 
+display biodiesel;
+display methanol;
+display petrol;
+display diesel;
+display sales;
+display costs;
+display profits;
+display PROFIT;
+
+#display AREA;
+#display WATER;
+#display PETROL;
+#display OVERALL;
+#display VEGGIEOIL;
+#display BIODIESEL;
+#display BIODIESEL_DIESEL;
+#display PETROL_DIESEL;
+#display SALES;
+#display COSTS;

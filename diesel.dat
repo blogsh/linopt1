@@ -1,0 +1,38 @@
+param biodiesel_per_veggie_oil := 0.9;		# 0.2;#1.11111111111; # 0.9 / 1.0   l/l
+param biodiesel_per_methanol := 4.5; #0.222222222;		# 0.05 # 0.9 / 0.2     l/l
+param methanol_price := 1.5; # € / l			# 0.0
+param petrol_price := 1.0; # € / l
+
+param max_petrol := 150000; # l
+param max_area := 1600; # ha
+param max_water := 5000; # Ml
+
+param min_diesel := 280000; # l
+
+set Plants := Soy, Sunflower, Cotton;
+param seed_yield := 
+	Soy 		2500, 
+	Sunflower 	1500, 
+	Cotton 		800;
+param water_demand := 
+	Soy 		5, 
+	Sunflower 	4.2, 
+	Cotton 		1;
+param oil_yield := 
+	Soy 		0.178, 
+	Sunflower	0.216, 
+	Cotton		0.433;
+
+set DieselType := B5, B30, B100;
+param bio_percentage := 
+	B5			0.05, 
+	B30			0.3, 
+	B100		1;
+param sale_price := 
+	B5			1.4, 
+	B30			1.28, 
+	B100		1.13;
+param tax := 
+	B5			0.2,		# 0.2 
+	B30			0.05, 		# 0.05
+	B100		0.0; 		# 0.0
