@@ -2,15 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sensitivity
 
-res = sensitivity.analyze(['area*'], {
-	'max_area' : 350,
-	'max_water' : 1600
-})
-
-print(res)
-
-exit()
-
 if False:
 	feas_area = sensitivity.analyze_feasibility('max_area', 0, 1600)
 	feas_water = sensitivity.analyze_feasibility('max_water', 0, 5000)
@@ -56,7 +47,7 @@ if False:
 	plt.grid()
 	plt.show()
 
-if True:
+if False:
 	plt.figure()
 
 	feas_area = sensitivity.analyze_feasibility('max_area', 0, 1600)
@@ -75,20 +66,19 @@ if True:
 	plt.grid()
 	plt.show()
 
-if False:
+if True:
 	plt.figure()
 
-	petrol_vals = np.linspace(0, 400000, 1)
+	petrol_vals = np.linspace(0, 400000, 5)
 	for petrol in petrol_vals:
 		options = dict(max_petrol = petrol)
 		feas_area = sensitivity.analyze_feasibility('max_area', 0, 1600, options=options)
 
-		area_vals = np.linspace(feas_area, 1000, 50)
+		area_vals = np.linspace(feas_area, 1000, 20)
 		water_vals = []
 
 		for area in area_vals:
 			options['max_area'] = area
-			#options = dict(max_area = area)
 			feas_water = sensitivity.analyze_feasibility('max_water', 0, 5000, options=options)
 			water_vals.append(feas_water)
 
@@ -96,6 +86,6 @@ if False:
 
 	plt.xlabel('Minimum Area')
 	plt.ylabel('Minimum Water')
+	plt.legend(petrol_vals, 'upper left')
 	plt.grid()
 	plt.show()
-

@@ -16,9 +16,9 @@ display costs;
 display profits;
 display PROFIT;
 
-#display AREA;
-#display WATER;
-#display PETROL;
+display AREA;
+display WATER;
+display PETROL;
 #display OVERALL;
 #display VEGGIEOIL;
 #display BIODIESEL;
