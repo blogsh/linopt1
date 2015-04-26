@@ -50,7 +50,6 @@ def analyze(variables = None, options = None, transform = None):
 				temp = '\n'.join(['%s %f' % (k, options[variable][k]) for k in options[variable].keys()])
 				m = re.search('%s :=(.*?);' % variable[0:-1], newdata, re.DOTALL | re.MULTILINE)
 				if m:
-					print(temp)
 					newdata = newdata.replace(m.group(0), variable[0:-1] + ' :=\n' + temp + ';')
 			
 	with open('temp/diesel.dat', 'w+') as f:
